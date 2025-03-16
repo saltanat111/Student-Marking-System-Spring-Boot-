@@ -46,4 +46,9 @@ public class AdminController {
         return ResponseEntity.ok(adminMapper.toDto(updatedAdmin));
     }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteAdmin(@PathVariable Long id) {
+        adminService.deleteAdmin(id);
+        return ResponseEntity.noContent().build();
+    }
 }

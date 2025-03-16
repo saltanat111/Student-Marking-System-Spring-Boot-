@@ -46,4 +46,10 @@ public class ParentController {
         return ResponseEntity.ok(parentMapper.toDto(updatedParent));
     }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteParent(@PathVariable Long id) {
+        parentService.deleteParent(id);
+        return ResponseEntity.noContent().build();
+    }
+
 }

@@ -46,4 +46,10 @@ public class MarkController {
         return ResponseEntity.ok(markMapper.toDto(updatedMark));
     }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteMark(@PathVariable Long id) {
+        markService.deleteMark(id);
+        return ResponseEntity.noContent().build();
+    }
+
 }
