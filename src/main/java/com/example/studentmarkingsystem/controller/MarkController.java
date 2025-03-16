@@ -39,4 +39,11 @@ public class MarkController {
         return ResponseEntity.ok(markMapper.toDto(savedMark));
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<MarkDTO> updateMark(@PathVariable Long id, @RequestBody MarkDTO markDTO) {
+        Mark mark = markMapper.toEntity(markDTO);
+        Mark updatedMark = markService.updateMark(id, mark);
+        return ResponseEntity.ok(markMapper.toDto(updatedMark));
+    }
+
 }

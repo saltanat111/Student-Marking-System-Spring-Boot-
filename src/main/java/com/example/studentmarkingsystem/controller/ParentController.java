@@ -39,4 +39,11 @@ public class ParentController {
         return ResponseEntity.ok(parentMapper.toDto(savedParent));
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<ParentDTO> updateParent(@PathVariable Long id, @RequestBody ParentDTO parentDTO) {
+        Parent parent = parentMapper.toEntity(parentDTO);
+        Parent updatedParent = parentService.updateParent(id, parent);
+        return ResponseEntity.ok(parentMapper.toDto(updatedParent));
+    }
+
 }

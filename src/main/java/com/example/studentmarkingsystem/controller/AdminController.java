@@ -39,4 +39,11 @@ public class AdminController {
         return ResponseEntity.ok(adminMapper.toDto(savedAdmin));
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<AdminDTO> updateAdmin(@PathVariable Long id, @RequestBody AdminDTO adminDTO) {
+        Admin admin = adminMapper.toEntity(adminDTO);
+        Admin updatedAdmin = adminService.updateAdmin(id, admin);
+        return ResponseEntity.ok(adminMapper.toDto(updatedAdmin));
+    }
+
 }
