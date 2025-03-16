@@ -32,5 +32,11 @@ public class ParentController {
         return ResponseEntity.ok(parentMapper.toDto(parent));
     }
 
+    @PostMapping
+    public ResponseEntity<ParentDTO> createParent(@RequestBody ParentDTO parentDTO) {
+        Parent parent = parentMapper.toEntity(parentDTO);
+        Parent savedParent = parentService.createParent(parent);
+        return ResponseEntity.ok(parentMapper.toDto(savedParent));
+    }
 
 }

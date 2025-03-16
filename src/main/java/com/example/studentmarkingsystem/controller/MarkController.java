@@ -32,5 +32,11 @@ public class MarkController {
         return ResponseEntity.ok(markMapper.toDto(mark));
     }
 
+    @PostMapping
+    public ResponseEntity<MarkDTO> createMark(@RequestBody MarkDTO markDTO) {
+        Mark mark = markMapper.toEntity(markDTO);
+        Mark savedMark = markService.createMark(mark);
+        return ResponseEntity.ok(markMapper.toDto(savedMark));
+    }
 
 }

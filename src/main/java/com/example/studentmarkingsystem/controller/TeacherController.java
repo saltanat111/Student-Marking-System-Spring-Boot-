@@ -32,5 +32,11 @@ public class TeacherController {
         return ResponseEntity.ok(teacherMapper.toDto(teacher));
     }
 
+    @PostMapping
+    public ResponseEntity<TeacherDTO> createTeacher(@RequestBody TeacherDTO teacherDTO) {
+        Teacher teacher = teacherMapper.toEntity(teacherDTO);
+        Teacher savedTeacher = teacherService.createTeacher(teacher);
+        return ResponseEntity.ok(teacherMapper.toDto(savedTeacher));
+    }
 
 }

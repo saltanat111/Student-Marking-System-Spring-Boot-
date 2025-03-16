@@ -32,5 +32,11 @@ public class AdminController {
         return ResponseEntity.ok(adminMapper.toDto(admin));
     }
 
+    @PostMapping
+    public ResponseEntity<AdminDTO> createAdmin(@RequestBody AdminDTO adminDTO) {
+        Admin admin = adminMapper.toEntity(adminDTO);
+        Admin savedAdmin = adminService.createAdmin(admin);
+        return ResponseEntity.ok(adminMapper.toDto(savedAdmin));
+    }
 
 }

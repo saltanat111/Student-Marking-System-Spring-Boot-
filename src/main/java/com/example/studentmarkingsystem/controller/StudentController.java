@@ -32,5 +32,11 @@ public class StudentController {
         return ResponseEntity.ok(studentMapper.toDto(student));
     }
 
+    @PostMapping
+    public ResponseEntity<StudentDTO> createStudent(@RequestBody StudentDTO studentDTO) {
+        Student student = studentMapper.toEntity(studentDTO);
+        Student savedStudent = studentService.createStudent(student);
+        return ResponseEntity.ok(studentMapper.toDto(savedStudent));
+    }
 
 }
