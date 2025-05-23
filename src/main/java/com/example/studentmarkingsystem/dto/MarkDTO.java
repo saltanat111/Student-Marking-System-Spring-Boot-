@@ -12,7 +12,7 @@ public class MarkDTO {
 
     public void setId(Long id) {
         this.id = id;
-    }
+    } 
 
     public Integer getStudentId() {
         return studentId;
